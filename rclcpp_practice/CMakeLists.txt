@@ -22,6 +22,18 @@ add_library(${PROJECT_NAME}
   src/rclcpp_practice/sample_component1.cpp
   src/rclcpp_practice/sample_component2.cpp
 )
+rclcpp_components_register_node(${PROJECT_NAME}
+  PLUGIN "rclcpp_practice::SampleComponent1"
+  EXECUTABLE sample_component1_node
+)
+rclcpp_components_register_node(${PROJECT_NAME}
+  PLUGIN "rclcpp_practice::SampleComponent2"
+  EXECUTABLE sample_component2_node
+)
+#rclcpp_components_register_nodes(${PROJECT_NAME}
+ #"rclcpp_practice::SampleComponent1"
+ #"rclcpp_practice::SampleComponent2"
+#)
 target_include_directories(${PROJECT_NAME}
   PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -41,6 +53,12 @@ install(TARGETS
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
   INCLUDES DESTINATION include
+)
+
+install (DIRECTORY
+  launch
+  config
+  DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)

@@ -20,6 +20,9 @@ private:
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr _str_sub;
   void str_cb(const std_msgs::msg::String::SharedPtr msg);
 
+  // parameters
+  std::string _same_name_param = "same_name_param_component2";
+  std::string _component2_unique_param = "unique_component2";
 };
 
 } // namespace rclcpp_practice

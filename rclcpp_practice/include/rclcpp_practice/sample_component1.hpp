@@ -24,6 +24,10 @@ private:
 
   size_t _count = 0;
 
+  // parameters
+  std::string _same_name_param = "same_name_param_component1";
+  std::string _component1_unique_param = "unique_component1";
+
 };
 
 } // namespace rclcpp_practice
