@@ -18,7 +18,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(std_msgs REQUIRED)
 
-add_library(${PROJECT_NAME}
+add_library(${PROJECT_NAME} SHARED
   src/rclcpp_practice/sample_component1.cpp
   src/rclcpp_practice/sample_component2.cpp
 )
