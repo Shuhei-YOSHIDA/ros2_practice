@@ -7,3 +7,6 @@ rclcpp_practice
 ## compose_components.launch.xml
 * Test for container and components
 * This is easy to use
+
+## compose_components_to_exsiting_container.launch.xml
+* Test for loading components into existing container
