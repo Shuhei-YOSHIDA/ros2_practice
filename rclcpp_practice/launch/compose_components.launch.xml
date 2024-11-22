@@ -1,0 +1,20 @@
+<!-- compose_components.launch.xml -->
+<launch>
+  <!-- exec="component_container_mt" for multithread -->
+  <node_container pkg="rclcpp_components" exec="component_container" name="test_container"
+    namespace="">
+    <composable_node pkg="rclcpp_practice" plugin="rclcpp_practice::SampleComponent1"
+      name="SampleComponent1" namespace="">
+      <param name="component1_unique_param" value="overrided_unique_1"/>
+      <param name="same_name_param" value="overided_snp_1"/>
+      <extra_arg name="use_intra_process_comms" value="true"/>
+    </composable_node>
+    <composable_node pkg="rclcpp_practice" plugin="rclcpp_practice::SampleComponent2"
+      name="SampleComponent2" namespace="">
+      <param name="component2_unique_param" value="overrided_unique_2"/>
+      <param name="same_name_param" value="overided_snp_2"/>
+      <extra_arg name="use_intra_process_comms" value="true"/>
+    </composable_node>
+  </node_container>
+</launch>
+
