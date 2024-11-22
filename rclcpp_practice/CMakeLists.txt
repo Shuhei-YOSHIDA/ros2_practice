@@ -45,6 +45,23 @@ ament_target_dependencies(${PROJECT_NAME}
   std_msgs
 )
 
+add_executable(manual_load_composition
+  src/manual_load_composition.cpp
+)
+target_include_directories(manual_load_composition
+  PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+target_link_libraries(manual_load_composition
+  ${PROJECT_NAME}
+)
+ament_target_dependencies(manual_load_composition
+  rclcpp
+  rclcpp_components
+  std_msgs
+)
+
 ament_export_targets(export_${PROJECT_NAME})
 install(TARGETS
   ${PROJECT_NAME}
@@ -55,7 +72,12 @@ install(TARGETS
   INCLUDES DESTINATION include
 )
 
-install (DIRECTORY
+install(TARGETS
+  manual_load_composition
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY
   launch
   config
   DESTINATION share/${PROJECT_NAME}

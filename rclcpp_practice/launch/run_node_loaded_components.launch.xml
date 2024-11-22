@@ -1,0 +1,24 @@
+<!-- run_node_loaded_components.launch.xml -->
+<!-- test of manual_load_composition.cpp -->
+<launch>
+  <!-- pattern 1 -->
+  <!-- Setting parameters -->
+  <node pkg="rclcpp_practice" exec="manual_load_composition">
+    <!-- Impossible to set namespaced parameter -->
+    <!--<param name="/sample_component1/same_name_param" value="overrided_snp_1"/>-->>
+    <!--<param name="/sample_component2/same_name_param" value="overrided_snp_2"/>-->
+    <!-- Possible to set values to parameters of diffrent name -->
+    <param name="component1_unique_param" value="overrided_unique_1"/>
+    <param name="component2_unique_param" value="overrided_unique_2"/>
+    <!-- Impossible to set same_name_param of 1 and 2 independently ? -->
+    <!--<param name="same_name_param" value="overrided_snp_1"/>-->
+  </node>
+
+  <!-- pattern 2 -->
+  <!-- If set "name", all components are renamed by this "name" -->
+  <!-- Parameter namespace is also summarized, and duplicated parameters is diminished -->
+  <!-- Check same_name_param of components1/2 -->
+  <!--<node pkg="rclcpp_practice" exec="manual_load_composition" name="manual_test">-->
+  <!--</node>-->
+</launch>
+
