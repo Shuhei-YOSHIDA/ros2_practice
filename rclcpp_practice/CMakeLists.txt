@@ -17,10 +17,12 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(rosbag2_interfaces REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
   src/rclcpp_practice/sample_component1.cpp
   src/rclcpp_practice/sample_component2.cpp
+  src/rclcpp_practice/sample_service_client.cpp
 )
 rclcpp_components_register_node(${PROJECT_NAME}
   PLUGIN "rclcpp_practice::SampleComponent1"
@@ -29,6 +31,10 @@ rclcpp_components_register_node(${PROJECT_NAME}
 rclcpp_components_register_node(${PROJECT_NAME}
   PLUGIN "rclcpp_practice::SampleComponent2"
   EXECUTABLE sample_component2_node
+)
+rclcpp_components_register_node(${PROJECT_NAME}
+    PLUGIN "rclcpp_practice::SampleServiceClient"
+  EXECUTABLE sample_service_client_node
 )
 #rclcpp_components_register_nodes(${PROJECT_NAME}
  #"rclcpp_practice::SampleComponent1"
@@ -43,6 +49,7 @@ ament_target_dependencies(${PROJECT_NAME}
   rclcpp
   rclcpp_components
   std_msgs
+  rosbag2_interfaces
 )
 
 add_executable(manual_load_composition
