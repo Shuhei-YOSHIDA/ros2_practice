@@ -33,7 +33,8 @@ void SampleServiceClient::timer_cb()
   }
 
   auto request = std::make_shared<rosbag2_interfaces::srv::Seek::Request>();
-  request->time.sec = 1734212500;
+  // If time is out of range of rosbag file, node of "ros2 bag play" will crash
+  request->time.sec = 1732412500; // test value for 20241124_AM rosbag data
 
   auto response_cb =
     [this](rclcpp::Client<rosbag2_interfaces::srv::Seek>::SharedFuture future){

@@ -1,6 +1,6 @@
 /**
  * @file sample_service_client.hpp
- * @brief Example to call service in ROS2 node
+ * @brief Example to call service in ROS2 node to check Seek service of "ros2 bag play"
  */
 
 #include <rclcpp/client.hpp>

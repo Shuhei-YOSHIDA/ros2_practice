@@ -23,6 +23,7 @@ add_library(${PROJECT_NAME} SHARED
   src/rclcpp_practice/sample_component1.cpp
   src/rclcpp_practice/sample_component2.cpp
   src/rclcpp_practice/sample_service_client.cpp
+  src/rclcpp_practice/sample_service_server.cpp
 )
 rclcpp_components_register_node(${PROJECT_NAME}
   PLUGIN "rclcpp_practice::SampleComponent1"
@@ -33,8 +34,12 @@ rclcpp_components_register_node(${PROJECT_NAME}
   EXECUTABLE sample_component2_node
 )
 rclcpp_components_register_node(${PROJECT_NAME}
-    PLUGIN "rclcpp_practice::SampleServiceClient"
+  PLUGIN "rclcpp_practice::SampleServiceClient"
   EXECUTABLE sample_service_client_node
+)
+rclcpp_components_register_node(${PROJECT_NAME}
+  PLUGIN "rclcpp_practice::SampleServiceServer"
+  EXECUTABLE sample_service_server_node
 )
 #rclcpp_components_register_nodes(${PROJECT_NAME}
  #"rclcpp_practice::SampleComponent1"
