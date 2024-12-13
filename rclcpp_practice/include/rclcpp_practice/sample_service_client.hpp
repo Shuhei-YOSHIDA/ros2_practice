@@ -1,5 +1,6 @@
 /**
  * @file sample_service_client.hpp
+ * @brief Example to call service in ROS2 node
  */
 
 #include <rclcpp/client.hpp>
