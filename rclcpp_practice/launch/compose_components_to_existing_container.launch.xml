@@ -1,11 +1,11 @@
 <!-- compose_components_to_exsiting_container.launch.xml -->
 <launch>
   <!-- Existing container, it may be executed other launch file -->
-  <node pkg="rclcpp_components" exec="component_container" name="test_exist_container">
+  <node pkg="rclcpp_components" exec="component_container" name="test_exist_container" namespace="">
   </node>
 
   <!-- exec="component_container_mt" for multithread -->
-  <load_composable_node target="test_exist_container"> 
+  <load_composable_node target="test0/test_exist_container">
     <composable_node pkg="rclcpp_practice" plugin="rclcpp_practice::SampleComponent1"
       name="SampleComponent1" namespace="">
       <param name="component1_unique_param" value="overrided_unique_1"/>

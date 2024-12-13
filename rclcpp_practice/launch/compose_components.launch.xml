@@ -2,7 +2,7 @@
 <launch>
   <!-- exec="component_container_mt" for multithread -->
   <node_container pkg="rclcpp_components" exec="component_container" name="test_container"
-    namespace="" output="screen">
+    namespace="" output="screen" respawn="true">
     <composable_node pkg="rclcpp_practice" plugin="rclcpp_practice::SampleComponent1"
       name="SampleComponent1" namespace="">
       <param name="component1_unique_param" value="overrided_unique_1"/>
