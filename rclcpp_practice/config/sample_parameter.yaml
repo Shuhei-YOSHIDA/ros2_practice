@@ -24,3 +24,4 @@
 /ns1/sample_parameter_node:
   ros__parameters:
      test_param1: "ns1_yaml_data_test_param1"
+     no_defined_param: "yaml_no_defined_param"
