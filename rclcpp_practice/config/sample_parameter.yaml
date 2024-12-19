@@ -1,0 +1,26 @@
+# For any nodes
+/**:
+  ros__parameters:
+    test_param1: "yaml_data_test_param1"
+    test_param2: "yaml_data_test_param2"
+    namespace_example:
+      test_param3: "yaml_data_test_param3"
+      test_param4: "yaml_data_test_param4"
+    test_param5: [100.0, 200.0, 300.0]
+
+# For /sample_parameter_node_yaml2
+/sample_parameter_node_yaml2:
+  ros__parameters:
+    test_param1: "yaml_data_test_param1_1"
+    test_param2: "yaml_data_test_param2_1"
+    namespace_example:
+      test_param3: "yaml_data_test_param3_1"
+      #test_param4: "yaml_data_test_param4_1" # yaml_data_test_param4 is used
+    test_param5:
+      - 1000.
+      - 2000.
+      - 3000.
+
+/ns1/sample_parameter_node:
+  ros__parameters:
+     test_param1: "ns1_yaml_data_test_param1"
